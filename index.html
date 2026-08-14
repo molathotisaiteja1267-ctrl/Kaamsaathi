@@ -1,0 +1,1153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d5c63" />
+    <meta name="description" content="KaamSaathi — Everyday problems. One trusted solution. Book verified local professionals for electrical, plumbing, cleaning, moving and household tasks in Varanasi." />
+    <title>KaamSaathi — Everyday Problems. One Trusted Solution.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Top Customer Announcement Banner -->
+    <div class="announcement">
+      <span class="pulse-dot"></span>
+      <span><strong>KaamSaathi Varanasi</strong> — 100% verified neighbourhood service pros ready to help in 15–20 minutes.</span>
+    </div>
+
+    <!-- Public Landing Page Header -->
+    <header class="site-header" id="top">
+      <a class="brand" href="#top" aria-label="KaamSaathi Home">
+        <span class="brand-mark">K</span>
+        <span>kaam<span>saathi</span></span>
+      </a>
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <a href="#services">Services</a>
+        <a href="#helper">KaamSaathi Helper</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#trust">Safety &amp; Privacy</a>
+        <a href="#partners">Verified Pros</a>
+        <button class="text-button" id="open-assistant-nav-btn">✦ AI Assistant</button>
+      </nav>
+      <div class="nav-actions">
+        <button class="text-button" id="landing-login-btn">Log In</button>
+        <button class="button button-small" id="landing-signup-btn">Sign Up <span>→</span></button>
+      </div>
+      <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Open mobile menu">☰</button>
+    </header>
+
+    <!-- Main Public Landing Page Content -->
+    <main id="public-landing">
+      <!-- Hero Section -->
+      <section class="hero section-shell">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="eye-icon">✦</span> Trusted Neighbourhood Help</div>
+          <h1>Everyday problems.<br /><em>One trusted solution.</em></h1>
+          <p class="hero-description">Book verified local professionals and helpers for electrical, plumbing, cleaning, ironing, home food, shifting and everyday tasks in Varanasi.</p>
+          
+          <div class="hero-actions">
+            <button class="button button-large" id="hero-book-btn">Book a Service <span>→</span></button>
+            <button class="button button-ghost button-large" id="hero-partner-btn">Become a Partner <span>↗</span></button>
+          </div>
+
+          <!-- Natural Language Search Bar -->
+          <div class="quick-search" id="search-box">
+            <span class="search-icon">⌕</span>
+            <input id="task-search" autocomplete="off" placeholder="What do you need help with? (e.g. fix my cooler, fan kharab hai)" aria-label="What do you need help with?" />
+            <button id="search-submit" aria-label="Search for a task">→</button>
+            <div class="suggestion-popover" id="search-suggestion" hidden></div>
+          </div>
+          <div class="search-hint">Try Hinglish: <em>"My cooler is not cooling"</em>, <em>"ghar shift karna hai"</em>, <em>"water tank clean"</em></div>
+
+          <div class="trust-row">
+            <span><b class="avatars"><i>R</i><i>A</i><i>P</i></b> <strong>12,400+</strong> happy neighbours</span>
+            <span class="divider"></span>
+            <span class="verified-mini">✓ <strong>100% Verified</strong> local pros</span>
+            <span class="divider"></span>
+            <span>🛡️ <strong>Zero raw Aadhaar</strong> storage</span>
+          </div>
+        </div>
+
+        <!-- Hero Radar Map Visualizer -->
+        <div class="hero-visual" aria-label="Live Varanasi Service Radar">
+          <div class="location-chip" id="location-picker-chip">
+            📍 <span id="current-city-label">Varanasi · Lanka</span> <b>⌄</b>
+          </div>
+          <div class="abstract-blob blob-one"></div>
+          <div class="abstract-blob blob-two"></div>
+          
+          <div class="map-card">
+            <div class="map-header">
+              <span>Finding verified pros near you</span>
+              <span class="live-label"><i></i> LIVE RADAR</span>
+            </div>
+            <div class="map-grid"></div>
+            <span class="map-road road-one"></span>
+            <span class="map-road road-two"></span>
+            <span class="map-road road-three"></span>
+            <div class="map-pin pin-a" title="Electrician nearby" data-quick-service="Electrician">⚡</div>
+            <div class="map-pin pin-b" title="Cooler Repair nearby" data-quick-service="Cooler Repair & Service">♨</div>
+            <div class="map-pin pin-c" title="Deep Cleaning nearby" data-quick-service="Home Cleaning">☷</div>
+            <div class="you-pin"><span></span>You (Lanka)</div>
+            
+            <div class="match-card">
+              <div class="partner-avatar avatar-rahul">KP</div>
+              <div>
+                <small>TOP RATED PROS NEARBY</small>
+                <strong>Local Verified Technicians <span>✓</span></strong>
+                <p>Electrician · 1.8 km away · Lanka</p>
+              </div>
+              <b class="match-score">98<small>%</small></b>
+            </div>
+          </div>
+
+          <div class="float-chip chip-rating">★ 4.9 <span>average partner rating</span></div>
+          <div class="float-chip chip-time"><b>15 min</b><span>average arrival in Varanasi</span></div>
+        </div>
+      </section>
+
+      <!-- Quick Popular Services Strip -->
+      <section class="service-strip">
+        <div class="section-shell strip-inner">
+          <span>Popular today:</span>
+          <button data-quick-service="Electrician">⚡ Fan &amp; Electrician</button>
+          <button data-quick-service="Cooler Repair & Service">♨ Cooler Repair</button>
+          <button data-quick-service="Home Cleaning">☷ Room &amp; Home Cleaning</button>
+          <button data-quick-service="Plumber">◌ Plumber</button>
+          <button data-quick-service="Ironing">♨ Doorstep Ironing</button>
+          <button data-quick-service="Home Cook">⌘ Home Cook</button>
+          <button data-quick-service="House Shifting">🚚 House Shifting</button>
+        </div>
+      </section>
+
+      <!-- Complete 8 Categories & 69 Services Grid -->
+      <section class="section-shell services-section" id="services">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">Complete Service Marketplace</div>
+            <h2>Whatever needs doing,<br /><em>we’ll help get it done.</em></h2>
+          </div>
+          <button class="button button-ghost" id="open-all-services-btn">Explore All Services <span>→</span></button>
+        </div>
+
+        <!-- Category Tabs Filter -->
+        <div class="category-tabs" id="category-tabs-container">
+          <button class="category-tab active" data-category="ALL">All Categories (69)</button>
+          <button class="category-tab" data-category="HOME MAINTENANCE">Home Maintenance</button>
+          <button class="category-tab" data-category="CLEANING">Cleaning</button>
+          <button class="category-tab" data-category="LAUNDRY & CLOTHING">Laundry &amp; Clothing</button>
+          <button class="category-tab" data-category="FOOD & KITCHEN">Food &amp; Kitchen</button>
+          <button class="category-tab" data-category="MOVING & HOUSEHOLD HELP">Moving &amp; Help</button>
+          <button class="category-tab" data-category="VEHICLE SERVICES">Vehicle Services</button>
+          <button class="category-tab" data-category="OUTDOOR SERVICES">Outdoor &amp; Garden</button>
+          <button class="category-tab" data-category="PERSONAL & OTHER">Personal &amp; Tech</button>
+        </div>
+
+        <div class="service-grid" id="service-grid"></div>
+      </section>
+
+      <!-- KaamSaathi Assistant & Multi-Task Compound Bundler -->
+      <section class="helper-section section-shell" id="helper">
+        <div class="helper-panel">
+          <div class="helper-topline">
+            <span class="sparkle">✦</span> KAAMSAATHI ASSISTANT &amp; MULTI-TASK HELPER
+          </div>
+          <h2>Not sure which service<br />or have <em>multiple tasks?</em></h2>
+          <p>Describe your needs in plain English or Hinglish. We’ll detect every task, bundle them into a discounted package, or assign an all-rounder helper.</p>
+          
+          <div class="helper-input-wrap">
+            <textarea id="helper-text" rows="3" placeholder="Example: I am moving into a new room. I need cleaning, furniture assembly and help carrying boxes."></textarea>
+            <button id="helper-submit" class="button button-lime">Find Solution <span>→</span></button>
+          </div>
+
+          <div class="helper-result" id="helper-result" hidden></div>
+
+          <div class="helper-prompts">
+            <span>Try one:</span>
+            <button data-prompt="My cooler is making noise and isn't cooling. Need repair today.">My cooler is making noise and isn't cooling</button>
+            <button data-prompt="I am moving into a new room. I need cleaning, furniture assembly and help carrying boxes.">Moving into new flat (Cleaning + Assembly + Boxes)</button>
+            <button data-prompt="Need someone to iron 15 shirts and deliver by evening.">Iron 15 shirts and deliver</button>
+            <button data-prompt="Tired after work, need a homely cook for dinner today.">Homely cook for dinner</button>
+          </div>
+        </div>
+
+        <div class="helper-art" aria-hidden="true">
+          <div class="helper-ring ring-one"></div>
+          <div class="helper-ring ring-two"></div>
+          <div class="helper-person">
+            <div class="person-head"></div>
+            <div class="person-body"></div>
+            <div class="person-arm arm-left"></div>
+            <div class="person-arm arm-right"></div>
+            <div class="person-leg leg-left"></div>
+            <div class="person-leg leg-right"></div>
+            <div class="toolbox">✦</div>
+          </div>
+          <div class="skill-sticker sticker-one">✦ Deep Clean</div>
+          <div class="skill-sticker sticker-two">⚒ Assembly</div>
+          <div class="skill-sticker sticker-three">↗ Moving Help</div>
+        </div>
+      </section>
+
+      <!-- How It Works Section -->
+      <section class="section-shell how-section" id="how-it-works">
+        <div class="section-heading centered">
+          <div>
+            <div class="eyebrow">Transparent &amp; Reliable</div>
+            <h2>From “I need help”<br />to <em>“it’s sorted.”</em></h2>
+          </div>
+        </div>
+        <div class="steps-grid">
+          <article class="step-card">
+            <span class="step-num">01</span>
+            <div class="step-icon">⌕</div>
+            <h3>Describe your task</h3>
+            <p>Type in natural language, pick a service, or bundle multiple tasks into one seamless order.</p>
+          </article>
+          <article class="step-card">
+            <span class="step-num">02</span>
+            <div class="step-icon">◉</div>
+            <h3>Get matched with verified pros</h3>
+            <p>See verified partner profiles nearby with real ratings, transparent pricing, and live arrival estimates.</p>
+          </article>
+          <article class="step-card">
+            <span class="step-num">03</span>
+            <div class="step-icon">✓</div>
+            <h3>Track, pay &amp; relax</h3>
+            <p>Follow live status updates from assignment to arrival, pay securely via UPI/Card/Cash, and rate your pro.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Trust, Safety & Privacy Section -->
+      <section class="trust-section" id="trust">
+        <div class="section-shell trust-layout">
+          <div class="trust-copy">
+            <div class="eyebrow light">Built Around Absolute Trust</div>
+            <h2>Your safety &amp; privacy are<br /><em>always built in.</em></h2>
+            <p>We designed KaamSaathi with industry-grade privacy architecture. Partner home addresses are kept strictly private (only service radius is visible), and raw government ID numbers are never stored in plain text.</p>
+            <button class="button button-light" id="open-safety-center-btn">Explore Safety Center <span>→</span></button>
+          </div>
+          <div class="trust-points">
+            <div>
+              <b>✓</b>
+              <span>
+                <strong>Multi-Level Verification</strong>
+                <small>Mobile OTP, masked Government ID, address radius &amp; practical trade skill audits.</small>
+              </span>
+            </div>
+            <div>
+              <b>🛡️</b>
+              <span>
+                <strong>Privacy-First Location</strong>
+                <small>Partners see only customer service addresses; customers see only partner service radius.</small>
+              </span>
+            </div>
+            <div>
+              <b>₹</b>
+              <span>
+                <strong>Upfront Fixed Estimates</strong>
+                <small>Transparent base prices + standard platform fees. No hidden surge charges.</small>
+              </span>
+            </div>
+            <div>
+              <b>⊕</b>
+              <span>
+                <strong>Audit Logging &amp; Disputes</strong>
+                <small>Every admin verification decision and dispute action is logged with an immutable audit trail.</small>
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Verified Partners Showcase -->
+      <section class="section-shell partners-section" id="partners">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">Meet Your Neighbourhood Pros</div>
+            <h2>Skilled people.<br /><em>Dependable workmanship.</em></h2>
+          </div>
+          <div class="section-blurb">Every partner is verified through our multi-point onboarding process with live background and skill checks.</div>
+        </div>
+        <div class="partner-grid" id="partner-grid"></div>
+      </section>
+
+      <!-- Pre-Bundled Packages -->
+      <section class="packages-wrap">
+        <div class="section-shell packages-section">
+          <div class="section-heading">
+            <div>
+              <div class="eyebrow">Convenient Bundles</div>
+              <h2>Made for life’s<br /><em>busy transitions.</em></h2>
+            </div>
+          </div>
+          <div class="package-grid" id="package-grid"></div>
+        </div>
+      </section>
+
+      <!-- Neighbourhood Reviews -->
+      <section class="section-shell social-proof">
+        <div class="proof-head">
+          <div class="eyebrow">Real Varanasi Reviews</div>
+          <h2>Neighbours who got<br /><em>their day back.</em></h2>
+          <div class="rating-aggregate">
+            <strong>4.9</strong>
+            <span>★★★★★<small>from 8,400+ verified customer reviews</small></span>
+          </div>
+        </div>
+        <div class="review-grid">
+          <figure>
+            <div class="quote">“</div>
+            <blockquote>My ceiling fan stopped working on a hot afternoon right before an online interview. The electrician arrived in 18 minutes, had a replacement capacitor in his kit, and fixed it quietly. Exceptional service!</blockquote>
+            <figcaption><b>Shreya Mishra</b><span>Lanka, Varanasi · Electrical Repair</span></figcaption>
+          </figure>
+          <figure>
+            <div class="quote">“</div>
+            <blockquote>Moved into a 2BHK in Bhelupur. Booked the Move-In Package. The team handled deep bathroom cleaning, bed assembly, and curtain rods in under 3 hours. Completely hassle-free.</blockquote>
+            <figcaption><b>Arjun Sharma</b><span>Bhelupur, Varanasi · Move-In Bundle</span></figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- Become a Partner CTA -->
+      <section class="partner-cta section-shell" id="partner-cta">
+        <div>
+          <div class="eyebrow">For Skilled Professionals &amp; Helpers</div>
+          <h2>Your skills can earn<br />dignity &amp; <em>consistent income.</em></h2>
+          <p>Join KaamSaathi as an independent service partner. Work in your preferred locality, receive direct bookings, and earn transparent weekly payouts with zero middlemen cuts.</p>
+          <button class="button button-large" id="cta-partner-register-btn">Apply as a KaamSaathi Partner <span>→</span></button>
+          <small>Includes multi-step digital onboarding and verification audit. Start earning in your neighborhood.</small>
+        </div>
+        <div class="earnings-card">
+          <span class="earnings-label">AVERAGE WEEKLY EARNINGS IN VARANASI</span>
+          <strong>₹8,450</strong>
+          <div class="earnings-chart">
+            <i style="height:42%"></i>
+            <i style="height:65%"></i>
+            <i style="height:55%"></i>
+            <i style="height:88%"></i>
+            <i style="height:72%"></i>
+            <i style="height:98%"></i>
+            <i style="height:82%"></i>
+          </div>
+          <div class="earnings-foot">
+            <span>Mon</span>
+            <span>Sun</span>
+            <b>+22% higher than market</b>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQs -->
+      <section class="faq-section section-shell" id="faq">
+        <div>
+          <div class="eyebrow">Frequently Asked Questions</div>
+          <h2>Clear answers<br /><em>before you book.</em></h2>
+        </div>
+        <div class="faq-list">
+          <details open>
+            <summary>How does KaamSaathi match me with a partner?<span>+</span></summary>
+            <p>Our matching engine scores partners based on requested skills, live proximity to your address, availability, customer rating history, and response speed.</p>
+          </details>
+          <details>
+            <summary>How does KYC and identity verification work?<span>+</span></summary>
+            <p>Partners submit masked government identification and address documents. Our admin verification desk audits the credentials before activating the profile. We strictly never store or display raw Aadhaar numbers.</p>
+          </details>
+          <details>
+            <summary>Can I schedule a service for later or book ASAP?<span>+</span></summary>
+            <p>Yes! During checkout, select either ASAP (arriving in 15–25 minutes) or pick a scheduled date and time slot that suits your schedule.</p>
+          </details>
+          <details>
+            <summary>What payment methods are supported?<span>+</span></summary>
+            <p>You can pay via UPI (GPay, PhonePe, Paytm), Credit/Debit Cards, or pay cash directly after service completion.</p>
+          </details>
+        </div>
+      </section>
+
+      <!-- Mobile App Download Banner -->
+      <section class="download-section">
+        <div class="section-shell download-layout">
+          <div>
+            <div class="eyebrow light">Help In Your Pocket</div>
+            <h2>One app. Every<br /><em>everyday need.</em></h2>
+            <p>Keep a trusted helping hand ready for whenever domestic repairs, cleaning, or emergencies arise.</p>
+            <div class="store-row">
+              <button class="store-button"><span>▷</span><small>GET IT ON<br /><b>Google Play</b></small></button>
+              <button class="store-button"><span>◐</span><small>Download on the<br /><b>App Store</b></small></button>
+            </div>
+          </div>
+          <div class="phone-mock">
+            <div class="phone-top">9:41 <span>◉ ▰</span></div>
+            <div class="phone-brand"><i>✦</i> kaamsaathi</div>
+            <div class="phone-greeting">Good afternoon,<br /><strong>Neighbour <span>✦</span></strong></div>
+            <div class="phone-task">What needs doing today?<div class="phone-search">⌕ &nbsp; Tell us in your own words</div></div>
+            <div class="phone-mini-card"><span>⚡</span><div><b>Fan &amp; Electrical</b><small>Verified partners nearby in Lanka</small></div><i>→</i></div>
+            <div class="phone-nav"><span>⌂<small>Home</small></span><span>◫<small>Bookings</small></span><span>♡<small>Saved</small></span><span>◉<small>Profile</small></span></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Public Footer -->
+    <footer>
+      <div class="section-shell footer-grid">
+        <div>
+          <a class="brand footer-brand" href="#top">
+            <span class="brand-mark">K</span>
+            <span>kaam<span>saathi</span></span>
+          </a>
+          <p>India's trusted hyper-local everyday services &amp; helper platform.</p>
+          <span class="footer-badge">✦ KaamSaathi Varanasi, Uttar Pradesh</span>
+        </div>
+        <div>
+          <b>Customer Services</b>
+          <a href="#services">Home Maintenance</a>
+          <a href="#services">Deep Cleaning</a>
+          <a href="#services">Doorstep Ironing</a>
+          <a href="#services">Homely Cook</a>
+          <a href="#services">Moving &amp; Shifting</a>
+        </div>
+        <div>
+          <b>For Partners</b>
+          <button id="footer-partner-apply-btn">Become a Partner</button>
+          <button id="footer-partner-login-btn">Partner Portal</button>
+          <button id="footer-partner-kyc-btn">KYC Guidelines</button>
+        </div>
+        <div>
+          <b>Platform &amp; Legal</b>
+          <button id="footer-safety-btn">Safety &amp; Privacy Policy</button>
+          <button id="footer-admin-btn">Administrator Access</button>
+        </div>
+      </div>
+      <div class="section-shell footer-bottom">
+        <span>© 2026 KaamSaathi Technologies Pvt. Ltd. All rights reserved.</span>
+        <span>Privacy Policy · Terms of Service · Grievance Officer · Varanasi</span>
+      </div>
+    </footer>
+
+    <!-- ======================================================================
+         FULL-SCREEN APPLICATION DASHBOARDS (100vw, 100vh)
+         ====================================================================== -->
+
+    <!-- 1. CUSTOMER FULLSCREEN DASHBOARD -->
+    <div class="fullscreen-app" id="customer-app" aria-label="Customer Workspace">
+      <aside class="app-sidebar">
+        <div class="sidebar-header">
+          <a class="brand" href="#top" style="color:white">
+            <span class="brand-mark" style="background:var(--lime);color:#0d4f55">K</span>
+            <span>kaam<span style="color:var(--lime)">saathi</span></span>
+          </a>
+          <span class="sidebar-role-badge">CUSTOMER SPACE</span>
+        </div>
+        <nav class="sidebar-nav" id="customer-nav">
+          <button class="active" data-view="cust-overview"><span class="nav-icon">📊</span><span>Dashboard</span></button>
+          <button data-view="cust-services"><span class="nav-icon">⚡</span><span>Book a Service</span></button>
+          <button data-view="cust-helper"><span class="nav-icon">✦</span><span>Book a Helper</span></button>
+          <button data-view="cust-bookings"><span class="nav-icon">📦</span><span>My Bookings</span> <span class="badge-count" id="cust-booking-badge">0</span></button>
+          <button data-view="cust-payments"><span class="nav-icon">💳</span><span>Payments</span></button>
+          <button data-view="cust-addresses"><span class="nav-icon">📍</span><span>Saved Addresses</span></button>
+          <button data-view="cust-reviews"><span class="nav-icon">★</span><span>Reviews</span></button>
+          <button data-view="cust-notifications"><span class="nav-icon">🔔</span><span>Notifications</span> <span class="badge-count" id="cust-notif-badge">0</span></button>
+          <button data-view="cust-profile"><span class="nav-icon">👤</span><span>Profile</span></button>
+          <button data-view="cust-support"><span class="nav-icon">🎧</span><span>Help &amp; Support</span></button>
+          <button id="cust-logout-btn" style="color:#fca5a5;margin-top:auto"><span class="nav-icon">🚪</span><span>Log Out</span></button>
+        </nav>
+        <div class="sidebar-footer">
+          <div class="partner-avatar" style="background:#835c91" id="cust-avatar-pill">SM</div>
+          <div class="user-info">
+            <div class="user-name" id="cust-name-pill">Customer</div>
+            <div class="user-role" id="cust-phone-pill">User</div>
+          </div>
+        </div>
+      </aside>
+
+      <main class="app-main">
+        <header class="app-topbar">
+          <div class="app-topbar-left">
+            <div class="app-search-mini">
+              <span>⌕</span>
+              <input type="text" id="cust-topbar-search" placeholder="Search service, pro..." />
+            </div>
+            <div class="location-chip" id="cust-header-address-chip" style="position:static;box-shadow:none;border:1px solid #dce4dc">
+              📍 <span id="cust-header-addr-text">Home · Lanka</span> <b>⌄</b>
+            </div>
+          </div>
+          <div class="app-topbar-right">
+            <button class="button button-small button-lime" id="cust-launch-assistant-btn">✦ KaamSaathi Assistant</button>
+            <button class="icon-btn-badge" id="cust-notif-bell-btn" title="Notifications">
+              🔔 <span class="badge-dot" id="cust-header-notif-dot" hidden></span>
+            </button>
+            <button class="text-button" id="cust-exit-to-landing-btn" title="Return to Landing Page">Exit App</button>
+          </div>
+        </header>
+
+        <div class="app-content-scroll" id="customer-main-view">
+          <!-- Dynamic Customer Views Rendered by app.js -->
+        </div>
+      </main>
+    </div>
+
+    <!-- 2. PARTNER FULLSCREEN DASHBOARD -->
+    <div class="fullscreen-app" id="partner-app" aria-label="Partner Workspace">
+      <aside class="app-sidebar">
+        <div class="sidebar-header">
+          <a class="brand" href="#top" style="color:white">
+            <span class="brand-mark" style="background:var(--lime);color:#0d4f55">K</span>
+            <span>kaam<span style="color:var(--lime)">saathi</span></span>
+          </a>
+          <span class="sidebar-role-badge">PARTNER PORTAL</span>
+        </div>
+        <nav class="sidebar-nav" id="partner-nav">
+          <button class="active" data-view="part-overview"><span class="nav-icon">📊</span><span>Dashboard</span></button>
+          <button data-view="part-requests"><span class="nav-icon">⚡</span><span>Incoming Requests</span> <span class="badge-count" id="part-req-badge">0</span></button>
+          <button data-view="part-active-jobs"><span class="nav-icon">🛠️</span><span>Active Jobs</span> <span class="badge-count" id="part-active-badge">0</span></button>
+          <button data-view="part-history"><span class="nav-icon">📜</span><span>Job History</span></button>
+          <button data-view="part-earnings"><span class="nav-icon">💰</span><span>Earnings</span></button>
+          <button data-view="part-skills"><span class="nav-icon">⚒</span><span>My Skills</span></button>
+          <button data-view="part-availability"><span class="nav-icon">⏱</span><span>Availability</span></button>
+          <button data-view="part-profile"><span class="nav-icon">👤</span><span>Partner Profile</span></button>
+          <button data-view="part-reviews"><span class="nav-icon">★</span><span>Customer Reviews</span></button>
+          <button data-view="part-notifications"><span class="nav-icon">🔔</span><span>Notifications</span></button>
+          <button data-view="part-support"><span class="nav-icon">🎧</span><span>Partner Support</span></button>
+          <button id="part-logout-btn" style="color:#fca5a5;margin-top:auto"><span class="nav-icon">🚪</span><span>Log Out</span></button>
+        </nav>
+        <div class="sidebar-footer">
+          <div class="partner-avatar" style="background:linear-gradient(135deg,#1d4545,#c98965)" id="part-avatar-pill">KP</div>
+          <div class="user-info">
+            <div class="user-name" id="part-name-pill">Partner</div>
+            <div class="user-role" id="part-area-pill">Varanasi</div>
+          </div>
+        </div>
+      </aside>
+
+      <main class="app-main">
+        <header class="app-topbar">
+          <div class="app-topbar-left">
+            <span class="status-pill verified" id="part-kyc-status-badge">🟡 VERIFICATION PENDING</span>
+            <span class="status-pill" id="part-skills-count-badge">Skills Active</span>
+          </div>
+          <div class="app-topbar-right">
+            <!-- Online / Offline Toggle Switch -->
+            <div style="display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700">
+              <span id="part-online-status-label" style="color:#10b981">Online for jobs</span>
+              <button class="switch on" id="part-toggle-online-btn"><i></i></button>
+            </div>
+            <button class="icon-btn-badge" id="part-notif-bell-btn">
+              🔔 <span class="badge-dot" id="part-header-notif-dot" hidden></span>
+            </button>
+            <button class="text-button" id="part-exit-to-landing-btn">Exit App</button>
+          </div>
+        </header>
+
+        <div class="app-content-scroll" id="partner-main-view">
+          <!-- Dynamic Partner Views Rendered by app.js -->
+        </div>
+      </main>
+    </div>
+
+    <!-- 3. ADMIN FULLSCREEN DASHBOARD (100vw x 100vh) -->
+    <div class="fullscreen-app" id="admin-app" aria-label="Admin Workspace">
+      <aside class="app-sidebar" style="background:#0a3236">
+        <div class="sidebar-header">
+          <a class="brand" href="#top" style="color:white">
+            <span class="brand-mark" style="background:#f59e0b;color:#0a3236">K</span>
+            <span>kaam<span style="color:#f59e0b">admin</span></span>
+          </a>
+          <span class="sidebar-role-badge" style="color:#f59e0b;background:rgba(245,158,11,0.15)">SUPER ADMIN</span>
+        </div>
+        <nav class="sidebar-nav" id="admin-nav">
+          <button class="active" data-view="adm-overview"><span class="nav-icon">📈</span><span>Dashboard</span></button>
+          <button data-view="adm-customers"><span class="nav-icon">👥</span><span>Customers</span></button>
+          <button data-view="adm-partners"><span class="nav-icon">👷</span><span>Partners</span></button>
+          <button data-view="adm-kyc"><span class="nav-icon">🛡️</span><span>Pending Verification</span> <span class="badge-count" id="adm-kyc-badge" style="background:#f59e0b">0</span></button>
+          <button data-view="adm-services"><span class="nav-icon">⚡</span><span>Services Catalog</span></button>
+          <button data-view="adm-bookings"><span class="nav-icon">📦</span><span>Bookings</span></button>
+          <button data-view="adm-payments"><span class="nav-icon">💳</span><span>Payments &amp; Revenue</span></button>
+          <button data-view="adm-complaints"><span class="nav-icon">⚠️</span><span>Complaints &amp; Disputes</span> <span class="badge-count" id="adm-complaints-badge" style="background:#ef4444">0</span></button>
+          <button data-view="adm-support-tickets"><span class="nav-icon">🎧</span><span>Support Tickets</span> <span class="badge-count" id="adm-tickets-badge" style="background:#0284c7">0</span></button>
+          <button data-view="adm-assistant"><span class="nav-icon">✦</span><span>Admin AI Assistant</span></button>
+          <button data-view="adm-audits"><span class="nav-icon">📜</span><span>Audit Logs</span></button>
+          <button id="adm-logout-btn" style="color:#fca5a5;margin-top:auto"><span class="nav-icon">🚪</span><span>Log Out</span></button>
+        </nav>
+        <div class="sidebar-footer">
+          <div class="partner-avatar" style="background:#315b5d">AD</div>
+          <div class="user-info">
+            <div class="user-name">Super Administrator</div>
+            <div class="user-role">Platform Operator</div>
+          </div>
+        </div>
+      </aside>
+
+      <main class="app-main">
+        <header class="app-topbar">
+          <div class="app-topbar-left">
+            <span class="eyebrow" style="margin:0">✦ SECURE PLATFORM CONTROL DESK</span>
+          </div>
+          <div class="app-topbar-right">
+            <button class="button button-small button-ghost" id="adm-refresh-data-btn" style="font-size:11px">🔄 Refresh Statistics</button>
+            <button class="text-button" id="adm-exit-to-landing-btn">Exit App</button>
+          </div>
+        </header>
+
+        <div class="app-content-scroll" id="admin-main-view">
+          <!-- Dynamic Admin Views Rendered by app.js -->
+        </div>
+      </main>
+    </div>
+
+    <!-- ======================================================================
+         MODALS & DIALOGS
+         ====================================================================== -->
+
+    <div class="modal-backdrop" id="modal-backdrop" hidden></div>
+
+    <!-- 1. Customer & Partner Authentication Modal -->
+    <dialog class="modal" id="login-modal">
+      <button class="modal-close-btn" data-close-modal aria-label="Close">×</button>
+      <div class="modal-header">
+        <div class="eyebrow">SECURE LOGIN</div>
+        <h2>Sign in to<br /><em>KaamSaathi</em></h2>
+        <p>Access your customer bookings or partner service workspace.</p>
+      </div>
+      <div class="modal-body">
+        <form id="email-login-form">
+          <div class="form-group">
+            <label class="form-label" for="login-email">Email Address</label>
+            <input class="form-input" type="email" id="login-email" required placeholder="name@example.com" />
+          </div>
+          <div class="form-group">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+              <label class="form-label" for="login-password" style="margin:0">Password</label>
+            </div>
+            <input class="form-input" type="password" id="login-password" required placeholder="Enter your password" />
+          </div>
+          <button type="submit" class="button" style="width:100%;margin-top:10px">Sign In <span>→</span></button>
+        </form>
+
+        <div style="border-top:1px solid #e1e7df;margin-top:20px;padding-top:14px;text-align:center;font-size:13px;color:#607873">
+          Don't have an account yet? <button id="switch-to-signup-btn" style="font-weight:700;color:var(--teal)">Create an account</button>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- 2. Dedicated Administrator Login Modal (/admin/login) -->
+    <dialog class="modal" id="admin-login-modal">
+      <button class="modal-close-btn" data-close-modal aria-label="Close">×</button>
+      <div class="modal-header">
+        <div class="eyebrow" style="color:#d97706">✦ PLATFORM CONTROL</div>
+        <h2>KAAMSAATHI<br /><em style="color:#d97706">ADMIN LOGIN</em></h2>
+        <p>Restricted access for platform administrators and audit staff.</p>
+      </div>
+      <div class="modal-body">
+        <form id="admin-login-form">
+          <div class="form-group">
+            <label class="form-label" for="admin-email">Admin Email</label>
+            <input class="form-input" type="email" id="admin-email" required placeholder="admin@kaamsaathi.com" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="admin-password">Admin Password</label>
+            <input class="form-input" type="password" id="admin-password" required placeholder="Enter admin password" />
+          </div>
+          <button type="submit" class="button" style="width:100%;background:#0a3236;margin-top:10px">Admin Sign In <span>→</span></button>
+        </form>
+        <div style="margin-top:16px;text-align:center;font-size:12px;color:#859b95">
+          Admin accounts are provisioned via server configuration. Public registration is disabled.
+        </div>
+      </div>
+    </dialog>
+
+    <!-- 3. Registration / Sign Up Modal (With Clean SVG Vector Icons) -->
+    <dialog class="modal medium-modal" id="signup-modal">
+      <button class="modal-close-btn" data-close-modal aria-label="Close">×</button>
+      <div class="modal-header">
+        <div class="eyebrow">CREATE ACCOUNT</div>
+        <h2>Create your<br /><em>KaamSaathi account</em></h2>
+        <p>Choose your account type to get started with neighbourhood services.</p>
+      </div>
+      <div class="modal-body">
+        <!-- Professional Vector Icon Role Cards -->
+        <div class="role-select-cards">
+          <div class="role-card active" data-signup-role="CUSTOMER">
+            <div class="role-icon-svg">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            </div>
+            <h4>"I need a service"</h4>
+            <p>Book verified professionals for repairs, cleaning, moving and everyday help.</p>
+            <span class="role-action-link">Continue as Customer →</span>
+          </div>
+          <div class="role-card" data-signup-role="PARTNER">
+            <div class="role-icon-svg">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+            </div>
+            <h4>"I want to provide services"</h4>
+            <p>Earn income by offering your skills to customers in your neighbourhood.</p>
+            <span class="role-action-link">Continue as Partner →</span>
+          </div>
+        </div>
+
+        <form id="signup-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="reg-name">Full Name</label>
+              <input class="form-input" type="text" id="reg-name" required placeholder="e.g. Rahul Sharma" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="reg-phone">Mobile Number</label>
+              <input class="form-input" type="tel" id="reg-phone" placeholder="10-digit number" maxlength="10" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="reg-email">Email Address</label>
+              <input class="form-input" type="email" id="reg-email" required placeholder="name@example.com" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="reg-city">City</label>
+              <select class="form-select" id="reg-city">
+                <option value="Varanasi" selected>Varanasi</option>
+                <option value="Prayagraj">Prayagraj</option>
+                <option value="Lucknow">Lucknow</option>
+                <option value="Patna">Patna</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="reg-password">Password</label>
+              <input class="form-input" type="password" id="reg-password" required minlength="6" placeholder="Min. 6 characters" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="reg-confirm-password">Confirm Password</label>
+              <input class="form-input" type="password" id="reg-confirm-password" required placeholder="Repeat password" />
+            </div>
+          </div>
+
+          <div class="form-group" style="font-size:12px;color:#55726c;margin-top:6px">
+            <label style="display:flex;gap:8px;align-items:flex-start;cursor:pointer">
+              <input type="checkbox" id="reg-agree-terms" required style="margin-top:2px" />
+              <span>I agree to the <a href="#trust" style="text-decoration:underline;color:var(--teal)">Terms of Service</a> &amp; <a href="#trust" style="text-decoration:underline;color:var(--teal)">Privacy Policy</a>.</span>
+            </label>
+          </div>
+
+          <button type="submit" class="button" style="width:100%;margin-top:8px">Create Account <span>→</span></button>
+        </form>
+
+        <div style="border-top:1px solid #e1e7df;margin-top:18px;padding-top:12px;text-align:center;font-size:13px;color:#607873">
+          Already have an account? <button id="switch-to-login-btn" style="font-weight:700;color:var(--teal)">Log in here</button>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- 4. Customer Multi-Step Onboarding Modal -->
+    <dialog class="modal medium-modal" id="customer-onboarding-modal">
+      <div class="modal-header">
+        <div class="eyebrow">CUSTOMER ONBOARDING</div>
+        <h2 id="cust-onboard-title">Personal Details<br /><em>made simple.</em></h2>
+        <p id="cust-onboard-desc">Step 1 of 3. Let's set up your profile and primary service location.</p>
+        <div class="wizard-stepper" id="cust-onboard-stepper">
+          <i class="active"></i>
+          <i></i>
+          <i></i>
+        </div>
+      </div>
+      <div class="modal-body" id="cust-onboard-body">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </dialog>
+
+    <!-- 5. Partner Multi-Step Onboarding Wizard Modal -->
+    <dialog class="modal wide-modal" id="partner-onboarding-modal">
+      <div class="modal-header">
+        <div class="eyebrow">PARTNER ONBOARDING WIZARD</div>
+        <h2 id="part-onboard-title">Personal Information<br /><em>for verification.</em></h2>
+        <p id="part-onboard-desc">Step 1 of 6. Partners require verification audit before accepting customer bookings.</p>
+        <div class="wizard-stepper" id="part-onboard-stepper">
+          <i class="active"></i>
+          <i></i>
+          <i></i>
+          <i></i>
+          <i></i>
+          <i></i>
+        </div>
+      </div>
+      <div class="modal-body" id="part-onboard-body">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </dialog>
+
+    <!-- 6. Interactive Booking Modal (Unified Reusable Booking Wizard) -->
+    <dialog class="modal medium-modal" id="booking-modal">
+      <button class="modal-close-btn" data-close-modal aria-label="Close">×</button>
+      <div class="modal-header">
+        <div class="eyebrow">SERVICE CHECKOUT</div>
+        <h2 id="booking-step-title">Choose Service<br /><em>&amp; Details</em></h2>
+        <p id="booking-step-desc">Select a service, describe the task, and pick your preferred time.</p>
+        <div class="wizard-stepper" id="booking-stepper">
+          <i class="active"></i>
+          <i></i>
+          <i></i>
+        </div>
+      </div>
+      <div class="modal-body" id="booking-content">
+        <!-- Dynamic Booking Content Rendered by app.js -->
+      </div>
+    </dialog>
+
+    <!-- 7. Public Partner Profile Modal -->
+    <dialog class="modal medium-modal" id="partner-profile-modal">
+      <button class="modal-close-btn" data-close-modal aria-label="Close">×</button>
+      <div class="modal-body" id="partner-profile-content" style="padding-top:32px">
+        <!-- Dynamic Profile Content Rendered by app.js -->
+      </div>
+    </dialog>
+
+    <!-- 8. Safety Center & Privacy Modal -->
+    <dialog class="modal medium-modal" id="safety-modal">
+      <button class="modal-close-btn" data-close-modal aria-label="Close">×</button>
+      <div class="modal-header">
+        <div class="eyebrow">✦ TRUST &amp; SAFETY CENTER</div>
+        <h2>Your safety,<br /><em>with clear commitments.</em></h2>
+        <p>How KaamSaathi protects both customers and partners across every booking.</p>
+      </div>
+      <div class="modal-body">
+        <div class="safety-actions">
+          <button id="safety-share-booking-btn">
+            <span>↗</span>
+            <b>Share Booking Live Link</b>
+            <small>Send live tracking link to friends or family for peace of mind.</small>
+          </button>
+          <button id="safety-report-issue-btn">
+            <span>⚠️</span>
+            <b>Report a Problem or Dispute</b>
+            <small>File an official complaint for immediate admin mediation.</small>
+          </button>
+          <button id="safety-privacy-guide-btn">
+            <span>🛡️</span>
+            <b>Privacy &amp; Data Handling Policy</b>
+            <small>Learn how your masked ID and address privacy are protected.</small>
+          </button>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- 9. Customer Review & Rating Modal -->
+    <dialog class="modal" id="review-modal">
+      <button class="modal-close-btn" data-close-modal aria-label="Close">×</button>
+      <div class="modal-header">
+        <div class="eyebrow">RATE SERVICE</div>
+        <h2>How was your<br /><em>service experience?</em></h2>
+        <p id="review-booking-ref-label">Booking reference</p>
+      </div>
+      <div class="modal-body">
+        <form id="review-submit-form">
+          <input type="hidden" id="review-booking-id" />
+          <div class="form-group" style="text-align:center;margin:16px 0">
+            <div style="font-size:32px;display:flex;justify-content:center;gap:8px;cursor:pointer" id="star-rating-selector">
+              <span data-star="1" style="color:#f59e0b">★</span>
+              <span data-star="2" style="color:#f59e0b">★</span>
+              <span data-star="3" style="color:#f59e0b">★</span>
+              <span data-star="4" style="color:#f59e0b">★</span>
+              <span data-star="5" style="color:#f59e0b">★</span>
+            </div>
+            <span id="star-rating-text" style="font-size:12px;font-weight:700;color:var(--teal)">5 Stars — Excellent</span>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="review-comment">Feedback &amp; Comments</label>
+            <textarea class="form-textarea" id="review-comment" placeholder="Tell other neighbours about the pro's punctuality, workmanship, and conduct..." rows="3"></textarea>
+          </div>
+          <button type="submit" class="button" style="width:100%">Submit Review <span>→</span></button>
+        </form>
+      </div>
+    </dialog>
+
+    <!-- 10. Report Problem / Complaint Modal -->
+    <dialog class="modal" id="complaint-modal">
+      <button class="modal-close-btn" data-close-modal aria-label="Close">×</button>
+      <div class="modal-header">
+        <div class="eyebrow">HELP &amp; DISPUTES</div>
+        <h2>Report an issue with<br /><em>your service booking</em></h2>
+        <p>Our admin support desk investigates and resolves every dispute.</p>
+      </div>
+      <div class="modal-body">
+        <form id="complaint-submit-form">
+          <input type="hidden" id="complaint-booking-id" />
+          <div class="form-group">
+            <label class="form-label" for="complaint-category">Issue Category</label>
+            <select class="form-select" id="complaint-category">
+              <option value="Partner Delayed">Partner Delayed / Did Not Arrive</option>
+              <option value="Poor Service Quality">Poor Service Quality / Incomplete Work</option>
+              <option value="Unexpected Extra Charge">Unexpected Extra Charge</option>
+              <option value="Payment or Billing Issue">Payment or Billing Issue</option>
+              <option value="Safety or Conduct Concern">Safety or Conduct Concern</option>
+              <option value="Other">Other Reason</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="complaint-description">Describe What Happened</label>
+            <textarea class="form-textarea" id="complaint-description" required rows="4" placeholder="Please provide specific details so our support team can take action immediately..."></textarea>
+          </div>
+          <button type="submit" class="button button-danger" style="width:100%">Submit Complaint for Admin Review <span>→</span></button>
+        </form>
+      </div>
+    </dialog>
+
+    <!-- 11. Add Saved Address Modal -->
+    <dialog class="modal" id="add-address-modal">
+      <button class="modal-close-btn" data-close-modal aria-label="Close">×</button>
+      <div class="modal-header">
+        <div class="eyebrow">NEW ADDRESS</div>
+        <h2>Add Saved Address</h2>
+        <p>Save location for quick booking across Varanasi.</p>
+      </div>
+      <div class="modal-body">
+        <form id="add-address-form">
+          <div class="form-group">
+            <label class="form-label">Address Label</label>
+            <select class="form-select" id="new-addr-label">
+              <option value="Home">🏠 Home</option>
+              <option value="Work">💼 Work / Office</option>
+              <option value="Hostel">🎓 Hostel / PG</option>
+              <option value="Other">📍 Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">House / Flat / Building Address</label>
+            <input class="form-input" id="new-addr-line" required placeholder="e.g. Flat 402, Anand Enclave" />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Locality / Area</label>
+              <input class="form-input" id="new-addr-locality" required value="Lanka" placeholder="e.g. Lanka / Bhelupur / Assi" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">PIN Code</label>
+              <input class="form-input" id="new-addr-pincode" required value="221005" maxlength="6" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Landmark</label>
+            <input class="form-input" id="new-addr-landmark" placeholder="e.g. Near BHU Main Gate" />
+          </div>
+          <button type="submit" class="button" style="width:100%;margin-top:10px">Save Address <span>→</span></button>
+        </form>
+      </div>
+    </dialog>
+
+    <!-- 12. Edit Profile Modal -->
+    <dialog class="modal" id="edit-profile-modal">
+      <button class="modal-close-btn" data-close-modal aria-label="Close">×</button>
+      <div class="modal-header">
+        <div class="eyebrow">ACCOUNT PROFILE</div>
+        <h2>Edit Profile Information</h2>
+        <p>Update your personal details stored in the database.</p>
+      </div>
+      <div class="modal-body">
+        <form id="edit-profile-form">
+          <div class="form-group">
+            <label class="form-label" for="edit-profile-name">Full Name</label>
+            <input class="form-input" id="edit-profile-name" required />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="edit-profile-phone">Mobile Phone</label>
+              <input class="form-input" id="edit-profile-phone" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="edit-profile-lang">Preferred Language</label>
+              <select class="form-select" id="edit-profile-lang">
+                <option value="Hindi">Hindi</option>
+                <option value="English">English</option>
+                <option value="Bhojpuri">Bhojpuri</option>
+                <option value="Bengali">Bengali</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="edit-profile-bio">Bio / Notes</label>
+            <textarea class="form-textarea" id="edit-profile-bio" rows="3" placeholder="Tell us about yourself..."></textarea>
+          </div>
+          <div style="display:flex;justify-content:space-between;margin-top:16px">
+            <button type="button" class="button button-ghost" data-close-modal>Cancel</button>
+            <button type="submit" class="button">Save Changes <span>→</span></button>
+          </div>
+        </form>
+      </div>
+    </dialog>
+
+    <!-- 13. Change Password Modal -->
+    <dialog class="modal" id="change-password-modal">
+      <button class="modal-close-btn" data-close-modal aria-label="Close">×</button>
+      <div class="modal-header">
+        <div class="eyebrow">SECURITY</div>
+        <h2>Change Password</h2>
+        <p>Ensure your account stays protected.</p>
+      </div>
+      <div class="modal-body">
+        <form id="change-password-form">
+          <div class="form-group">
+            <label class="form-label" for="curr-pass-input">Current Password</label>
+            <input class="form-input" type="password" id="curr-pass-input" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="new-pass-input">New Password (min. 6 characters)</label>
+            <input class="form-input" type="password" id="new-pass-input" minlength="6" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="confirm-pass-input">Confirm New Password</label>
+            <input class="form-input" type="password" id="confirm-pass-input" required />
+          </div>
+          <div style="display:flex;justify-content:space-between;margin-top:16px">
+            <button type="button" class="button button-ghost" data-close-modal>Cancel</button>
+            <button type="submit" class="button">Update Password <span>→</span></button>
+          </div>
+        </form>
+      </div>
+    </dialog>
+
+    <!-- 14. Delete Account Confirmation Modal -->
+    <dialog class="modal" id="delete-account-modal">
+      <button class="modal-close-btn" data-close-modal aria-label="Close">×</button>
+      <div class="modal-header">
+        <div class="eyebrow" style="color:#ef4444">⚠️ DANGER ZONE</div>
+        <h2>Delete Account</h2>
+        <p>This action will deactivate your account and revoke all active sessions.</p>
+      </div>
+      <div class="modal-body">
+        <div style="background:#fef2f2;border:1px solid #fecaca;border-radius:12px;padding:14px;margin-bottom:16px;font-size:12px;color:#991b1b">
+          <strong>Are you sure?</strong> Your saved addresses, past bookings, and active orders will be archived and you will be immediately logged out.
+        </div>
+        <form id="delete-account-form">
+          <div class="form-group">
+            <label class="form-label" for="delete-account-pass">Enter Your Password to Confirm</label>
+            <input class="form-input" type="password" id="delete-account-pass" required placeholder="Your password" />
+          </div>
+          <div style="display:flex;justify-content:space-between;margin-top:16px">
+            <button type="button" class="button button-ghost" data-close-modal>Keep Account</button>
+            <button type="submit" class="button button-danger">Delete My Account Forever <span>→</span></button>
+          </div>
+        </form>
+      </div>
+    </dialog>
+
+    <!-- 15. Create Support Ticket Modal -->
+    <dialog class="modal" id="create-ticket-modal">
+      <button class="modal-close-btn" data-close-modal aria-label="Close">×</button>
+      <div class="modal-header">
+        <div class="eyebrow">SUPPORT DESK</div>
+        <h2>Create Support Request</h2>
+        <p>Our administration desk investigates and resolves every inquiry.</p>
+      </div>
+      <div class="modal-body">
+        <form id="create-ticket-form">
+          <div class="form-group">
+            <label class="form-label" for="tkt-category">Category</label>
+            <select class="form-select" id="tkt-category">
+              <option value="Booking Inquiry">Booking Inquiry</option>
+              <option value="Payment & Refund">Payment &amp; Refund</option>
+              <option value="Partner Conduct">Partner Conduct</option>
+              <option value="Cancellation Issue">Cancellation Issue</option>
+              <option value="Account & Address">Account &amp; Address</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="tkt-booking-ref">Booking Reference (Optional)</label>
+            <input class="form-input" id="tkt-booking-ref" placeholder="e.g. KS-2026-000184" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="tkt-description">Description</label>
+            <textarea class="form-textarea" id="tkt-description" required rows="4" placeholder="Explain your inquiry in detail..."></textarea>
+          </div>
+          <button type="submit" class="button" style="width:100%;margin-top:8px">Submit Support Request <span>→</span></button>
+        </form>
+      </div>
+    </dialog>
+
+    <!-- 16. Admin Service Modal (Add / Edit Service) -->
+    <dialog class="modal" id="admin-service-modal">
+      <button class="modal-close-btn" data-close-modal aria-label="Close">×</button>
+      <div class="modal-header">
+        <div class="eyebrow">CATALOG MANAGEMENT</div>
+        <h2 id="adm-srv-modal-title">Add / Edit Service</h2>
+        <p>Control service catalog offerings and base pricing.</p>
+      </div>
+      <div class="modal-body">
+        <form id="admin-service-form">
+          <input type="hidden" id="adm-srv-id" />
+          <div class="form-group">
+            <label class="form-label" for="adm-srv-name">Service Name</label>
+            <input class="form-input" id="adm-srv-name" required placeholder="e.g. Inverter Repair" />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="adm-srv-category">Category</label>
+              <select class="form-select" id="adm-srv-category">
+                <option value="HOME MAINTENANCE">HOME MAINTENANCE</option>
+                <option value="CLEANING">CLEANING</option>
+                <option value="LAUNDRY & CLOTHING">LAUNDRY &amp; CLOTHING</option>
+                <option value="FOOD & KITCHEN">FOOD &amp; KITCHEN</option>
+                <option value="MOVING & HOUSEHOLD HELP">MOVING &amp; HOUSEHOLD HELP</option>
+                <option value="VEHICLE SERVICES">VEHICLE SERVICES</option>
+                <option value="OUTDOOR SERVICES">OUTDOOR SERVICES</option>
+                <option value="PERSONAL & OTHER">PERSONAL &amp; OTHER</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="adm-srv-price">Base Price (₹)</label>
+              <input class="form-input" type="number" id="adm-srv-price" required value="149" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="adm-srv-desc">Description</label>
+            <textarea class="form-textarea" id="adm-srv-desc" required rows="2" placeholder="Brief service details..."></textarea>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="adm-srv-icon">Icon Symbol</label>
+              <input class="form-input" id="adm-srv-icon" value="⚡" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="adm-srv-color">Card Accent Color</label>
+              <input class="form-input" id="adm-srv-color" value="#fff1cf" />
+            </div>
+          </div>
+          <button type="submit" class="button" style="width:100%;margin-top:10px">Save Service <span>→</span></button>
+        </form>
+      </div>
+    </dialog>
+
+    <!-- 17. KaamSaathi Assistant Drawer (Right Sliding AI Drawer) -->
+    <aside class="assistant-drawer" id="assistant-drawer" aria-label="KaamSaathi AI Assistant">
+      <div class="assistant-head">
+        <h3>✦ KaamSaathi Assistant</h3>
+        <button id="close-assistant-btn" style="color:white;font-size:20px">×</button>
+      </div>
+      <div class="assistant-messages" id="assistant-messages-list">
+        <div class="chat-bubble bot">
+          <strong>Namaste! 👋</strong><br />
+          I am your KaamSaathi assistant. Tell me what needs fixing, cleaning, or setting up at your home in Varanasi.
+        </div>
+      </div>
+      <div class="assistant-input-bar">
+        <input type="text" id="assistant-user-input" placeholder="e.g. My cooler is not cooling..." />
+        <button id="assistant-send-btn" aria-label="Send message">→</button>
+      </div>
+    </aside>
+
+    <!-- Toast Notification -->
+    <div id="toast" role="status" aria-live="polite">
+      <span id="toast-message">Notification message</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="api.js"></script>
+    <script src="nlp.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

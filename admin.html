@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#062326" />
+    <meta name="description" content="KaamSaathi Platform Administrator Workspace — Complete operational management for Varanasi hyper-local services." />
+    <title>KaamSaathi — Administrator Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/admin.css" />
+  </head>
+  <body>
+
+    <!-- ======================================================================
+         SCREEN 1: STANDALONE ADMINISTRATOR LOGIN SCREEN (/admin/login)
+         ====================================================================== -->
+    <section class="admin-screen active" id="admin-login-screen">
+      <div class="admin-login-card">
+        <div class="admin-brand-header">
+          <div class="admin-brand-badge">✦ RESTRICTED ACCESS</div>
+          <h1>KaamSaathi <em>Admin</em></h1>
+          <p>Sign in to manage and monitor the entire platform.</p>
+        </div>
+
+        <form id="standalone-admin-login-form">
+          <div class="form-group">
+            <label class="form-label" for="adm-login-email">Admin Email</label>
+            <input class="form-input" type="email" id="adm-login-email" required placeholder="admin@kaamsaathi.com" autocomplete="email" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="adm-login-password">Admin Password</label>
+            <input class="form-input" type="password" id="adm-login-password" required placeholder="Enter secure password" autocomplete="current-password" />
+          </div>
+          <button type="submit" class="admin-btn admin-btn-accent" style="margin-top:10px">Sign In to Dashboard <span>→</span></button>
+        </form>
+
+        <div style="margin-top:20px;text-align:center;font-size:12px;color:var(--adm-muted)">
+          Platform operational access only. Public registration is disabled.
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SCREEN 2: 403 ACCESS DENIED SCREEN (For unauthorized Customer / Partner)
+         ====================================================================== -->
+    <section class="admin-screen" id="admin-denied-screen">
+      <div class="denied-box">
+        <div class="denied-icon">⚠️</div>
+        <h2>403 — Access Denied</h2>
+        <p>You do not have Administrator permissions. Only verified platform operators can access the Admin Workspace.</p>
+        <div style="display:flex;gap:12px;justify-content:center">
+          <button class="admin-btn admin-btn-accent" id="denied-return-home-btn">Return to Marketplace <span>→</span></button>
+          <button class="admin-btn admin-btn-ghost" style="color:white;border-color:#365b60" id="denied-relogin-btn">Admin Sign In</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SCREEN 3: MAIN DEDICATED ADMIN WORKSPACE (Full Viewport)
+         ====================================================================== -->
+    <section class="admin-screen" id="admin-app-layout">
+      <!-- Admin Sidebar -->
+      <aside class="adm-sidebar">
+        <div class="adm-sidebar-brand">
+          <a class="adm-brand-logo" href="/admin/dashboard">
+            <span class="adm-logo-mark">K</span>
+            <span>kaam<b>admin</b></span>
+          </a>
+          <span class="adm-role-tag">SUPER ADMIN</span>
+        </div>
+
+        <nav class="adm-nav" id="admin-sidebar-nav">
+          <button class="adm-nav-item active" data-route="/admin/dashboard">
+            <span class="nav-icon-svg">📈</span>
+            <span>Dashboard</span>
+          </button>
+          <button class="adm-nav-item" data-route="/admin/customers">
+            <span class="nav-icon-svg">👥</span>
+            <span>Customers</span>
+          </button>
+          <button class="adm-nav-item" data-route="/admin/partners">
+            <span class="nav-icon-svg">👷</span>
+            <span>Partners</span>
+          </button>
+          <button class="adm-nav-item" data-route="/admin/verification">
+            <span class="nav-icon-svg">🛡️</span>
+            <span>Verification Desk</span>
+            <span class="adm-nav-badge" id="sidebar-kyc-badge">0</span>
+          </button>
+          <button class="adm-nav-item" data-route="/admin/services">
+            <span class="nav-icon-svg">⚡</span>
+            <span>Services Catalog</span>
+          </button>
+          <button class="adm-nav-item" data-route="/admin/bookings">
+            <span class="nav-icon-svg">📦</span>
+            <span>Bookings</span>
+          </button>
+          <button class="adm-nav-item" data-route="/admin/payments">
+            <span class="nav-icon-svg">💳</span>
+            <span>Payments &amp; Revenue</span>
+          </button>
+          <button class="adm-nav-item" data-route="/admin/complaints">
+            <span class="nav-icon-svg">⚠️</span>
+            <span>Complaints &amp; Disputes</span>
+            <span class="adm-nav-badge" id="sidebar-complaint-badge" style="background:#ef4444;color:white">0</span>
+          </button>
+          <button class="adm-nav-item" data-route="/admin/support-tickets">
+            <span class="nav-icon-svg">🎧</span>
+            <span>Support Tickets</span>
+            <span class="adm-nav-badge" id="sidebar-ticket-badge" style="background:#0284c7;color:white">0</span>
+          </button>
+          <button class="adm-nav-item" data-route="/admin/analytics">
+            <span class="nav-icon-svg">📊</span>
+            <span>Analytics &amp; Growth</span>
+          </button>
+          <button class="adm-nav-item" data-route="/admin/assistant">
+            <span class="nav-icon-svg">✦</span>
+            <span>Admin AI Assistant</span>
+          </button>
+          <button class="adm-nav-item" data-route="/admin/notifications">
+            <span class="nav-icon-svg">🔔</span>
+            <span>Notifications</span>
+          </button>
+          <button class="adm-nav-item" data-route="/admin/audit-logs">
+            <span class="nav-icon-svg">📜</span>
+            <span>Audit Logs</span>
+          </button>
+          <button class="adm-nav-item" data-route="/admin/settings">
+            <span class="nav-icon-svg">⚙️</span>
+            <span>Settings</span>
+          </button>
+        </nav>
+
+        <div class="adm-sidebar-footer">
+          <div class="adm-admin-info">
+            <div class="adm-avatar">AD</div>
+            <div>
+              <div class="adm-admin-name" id="sidebar-admin-name">Administrator</div>
+              <div class="adm-admin-role">Super Admin</div>
+            </div>
+          </div>
+          <button class="admin-btn-ghost admin-btn-small" id="admin-logout-btn" style="color:#fca5a5;border-color:rgba(255,255,255,0.15)">Logout 🚪</button>
+        </div>
+      </aside>
+
+      <!-- Admin Main Content Area -->
+      <main class="adm-main-body">
+        <header class="adm-topbar">
+          <div class="adm-topbar-left">
+            <span class="adm-topbar-title" id="admin-page-title">Admin Dashboard</span>
+          </div>
+          <div class="adm-topbar-right">
+            <button class="admin-btn admin-btn-ghost admin-btn-small" id="admin-refresh-btn">🔄 Refresh Data</button>
+            <a href="/" class="admin-btn admin-btn-ghost admin-btn-small" target="_blank" style="text-decoration:none">View Marketplace ↗</a>
+          </div>
+        </header>
+
+        <div class="adm-content-scroll" id="admin-content-area">
+          <!-- Dynamic Admin Workspace Views Rendered by admin.js -->
+        </div>
+      </main>
+    </section>
+
+    <!-- ======================================================================
+         MODALS & DRAWERS
+         ====================================================================== -->
+    <div class="adm-modal-backdrop" id="adm-modal-backdrop"></div>
+
+    <!-- 1. Add / Edit Service Modal -->
+    <div class="adm-modal" id="adm-service-modal">
+      <div class="adm-modal-header">
+        <div>
+          <h3 id="adm-service-modal-title">Add / Edit Service</h3>
+          <p style="font-size:12px;color:var(--adm-muted)">Manage marketplace catalog and pricing.</p>
+        </div>
+        <button class="adm-modal-close" data-close-adm-modal>×</button>
+      </div>
+      <form id="adm-service-form">
+        <input type="hidden" id="adm-srv-form-id" />
+        <div class="form-group">
+          <label class="form-label" for="adm-srv-form-name">Service Name</label>
+          <input class="form-input" id="adm-srv-form-name" required placeholder="e.g. Inverter Installation" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="adm-srv-form-cat">Category</label>
+          <select class="form-select" id="adm-srv-form-cat">
+            <option value="HOME MAINTENANCE">HOME MAINTENANCE</option>
+            <option value="CLEANING">CLEANING</option>
+            <option value="LAUNDRY & CLOTHING">LAUNDRY &amp; CLOTHING</option>
+            <option value="FOOD & KITCHEN">FOOD &amp; KITCHEN</option>
+            <option value="MOVING & HOUSEHOLD HELP">MOVING &amp; HOUSEHOLD HELP</option>
+            <option value="VEHICLE SERVICES">VEHICLE SERVICES</option>
+            <option value="OUTDOOR SERVICES">OUTDOOR SERVICES</option>
+            <option value="PERSONAL & OTHER">PERSONAL &amp; OTHER</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="adm-srv-form-price">Starting Base Price (₹)</label>
+          <input class="form-input" type="number" id="adm-srv-form-price" required value="149" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="adm-srv-form-desc">Description</label>
+          <textarea class="form-textarea" id="adm-srv-form-desc" required rows="2" placeholder="Brief service details..."></textarea>
+        </div>
+        <div style="display:flex;justify-content:space-between;margin-top:20px">
+          <button type="button" class="admin-btn admin-btn-ghost admin-btn-small" data-close-adm-modal>Cancel</button>
+          <button type="submit" class="admin-btn admin-btn-accent admin-btn-small">Save Service <span>→</span></button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="adm-toast">Admin Notification</div>
+
+    <!-- Admin Client Logic -->
+    <script src="/api.js"></script>
+    <script src="/admin.js"></script>
+  </body>
+</html>
