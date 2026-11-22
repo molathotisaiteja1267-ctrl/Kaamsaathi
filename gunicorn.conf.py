@@ -24,3 +24,13 @@ proc_name = "kaamsaathi_api"
 # Worker recycling to prevent memory leaks
 max_requests = 1000
 max_requests_jitter = 50
+
+def on_starting(server):
+    """Run database migrations and catalog seeding once in the master process before workers fork."""
+    try:
+        import server as app_server
+        app_server.ensure_db_ready()
+        server.log.info("✓ [GUNICORN] Master process database migrations and catalog seeding completed successfully.")
+    except Exception as e:
+        server.log.error(f"[GUNICORN] Startup database initialization error: {e}")
+

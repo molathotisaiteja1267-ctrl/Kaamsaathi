@@ -110,6 +110,79 @@ def validate_password_strength(password: str, strict_length: int = 8) -> tuple[b
     return True, ""
 
 # ==============================================================================
+# 1B. Disposable Email & Real Contact Validation
+# ==============================================================================
+DISPOSABLE_EMAIL_DOMAINS = {
+    'mailinator.com', 'tempmail.com', 'temp-mail.org', 'guerrillamail.com', 'guerrillamail.net',
+    '10minutemail.com', '10minutemail.net', 'yopmail.com', 'yopmail.net', 'trashmail.com',
+    'sharklasers.com', 'dispostable.com', 'getairmail.com', 'burnermail.io', 'throwawaymail.com',
+    'mytemp.email', 'fakemailgenerator.com', 'inboxkitten.com', 'maildrop.cc', 'nada.ltd',
+    'mohmal.com', 'crazymailing.com', 'emailondeck.com', 'tempmailo.com', 'generator.email',
+    'trashmail.net', 'dropmail.me', 'getnada.com', 'airmail.news', 'disposablemail.com'
+}
+
+def is_disposable_email(email: str) -> bool:
+    """Checks whether an email belongs to a known temporary/disposable provider."""
+    if not email or '@' not in email:
+        return False
+    domain = email.split('@')[-1].strip().lower()
+    return domain in DISPOSABLE_EMAIL_DOMAINS
+
+def validate_email_address(email: str) -> tuple[bool, str]:
+    """
+    Validates email format and detects disposable domains.
+    Returns (is_valid: bool, error_message: str).
+    """
+    if not email or not isinstance(email, str):
+        return False, "A valid email address is required."
+    clean_email = email.strip().lower()
+    if len(clean_email) > 254:
+        return False, "Email address is too long (maximum 254 characters)."
+    pattern = r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$"
+    if not re.match(pattern, clean_email):
+        return False, "Invalid email format. Please enter a valid email address (e.g., name@example.com)."
+    if is_disposable_email(clean_email):
+        return False, "Temporary or disposable email addresses are not permitted. Please use a permanent email address."
+    return True, ""
+
+def normalize_and_validate_phone(phone: str) -> tuple[bool, str, str]:
+    """
+    Validates and normalizes phone numbers (supports Indian mobile numbers & international).
+    Returns (is_valid: bool, normalized_phone: str, error_message: str).
+    """
+    if not phone or not isinstance(phone, str):
+        return False, "", "Phone number is required."
+    
+    raw = phone.strip()
+    digits = re.sub(r'[^0-9]', '', raw)
+    
+    if len(digits) == 10:
+        if digits[0] not in ('6', '7', '8', '9'):
+            return False, "", "Indian mobile numbers must begin with 6, 7, 8, or 9."
+        norm = f"+91{digits}"
+    elif len(digits) == 11 and digits.startswith('0'):
+        if digits[1] not in ('6', '7', '8', '9'):
+            return False, "", "Indian mobile numbers must begin with 6, 7, 8, or 9."
+        norm = f"+91{digits[1:]}"
+    elif len(digits) == 12 and digits.startswith('91'):
+        if digits[2] not in ('6', '7', '8', '9'):
+            return False, "", "Indian mobile numbers must begin with 6, 7, 8, or 9."
+        norm = f"+{digits}"
+    elif len(digits) >= 11 and len(digits) <= 15:
+        norm = f"+{digits}"
+    else:
+        return False, "", "Invalid phone number length. Please enter a valid 10-digit mobile number."
+    
+    last10 = digits[-10:]
+    if len(set(last10)) == 1:
+        return False, "", "Invalid phone number. Repetitive digits are not allowed."
+    if last10 in ('1234567890', '0123456789', '9876543210'):
+        return False, "", "Invalid phone number. Sequential dummy numbers are not allowed."
+        
+    return True, norm, ""
+
+
+# ==============================================================================
 # 2. Session Token Hashing (Protection against DB Dump / Leak)
 # ==============================================================================
 def hash_session_token(raw_token: str) -> str:

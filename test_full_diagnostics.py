@@ -1,4 +1,4 @@
-﻿"""
+"""
 KaamSaathi Comprehensive Production Verification Test Suite
 Tests all production issues addressed:
 1. Database initialization and migrations
@@ -65,7 +65,7 @@ class TestKaamSaathiProduction(unittest.TestCase):
         customer_payload = {
             "full_name": "Aarav Sharma",
             "email": "aarav.test@example.com",
-            "phone": "9876543210",
+            "phone": "9814725380",
             "password": "Password@123",
             "city": "Delhi",
             "role": "CUSTOMER"
@@ -110,9 +110,11 @@ class TestKaamSaathiProduction(unittest.TestCase):
         TestKaamSaathiProduction.partner_token = data['token']
 
     def test_05_admin_login(self):
+        admin_email = os.environ.get("ADMIN_EMAIL", "molathotisaiteja1267@gmail.com")
+        admin_pw = os.environ.get("ADMIN_PASSWORD", "KaamSaathiAdmin@2028")
         res = self.client.post('/api/admin/login', json={
-            "email": "admin@kaamsaathi.com",
-            "password": "KaamSaathiAdmin@2026"
+            "email": admin_email,
+            "password": admin_pw
         })
         self.assertEqual(res.status_code, 200)
         data = res.get_json()

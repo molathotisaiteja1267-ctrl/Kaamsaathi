@@ -15,3 +15,19 @@ dist/
 build/
 *.egg-info/
 .env.development
+# User uploaded files
+uploads/
+
+# Database backups
+backups/*.db
+backups/*.sqlite
+backups/*.sha256
+
+# Environment secrets
+.env
+.env.*
+!.env.example
+
+# Python cache
+__pycache__/
+*.pyc

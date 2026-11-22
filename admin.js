@@ -326,8 +326,14 @@
               <tr>
                 <td><strong>${c.id}</strong></td>
                 <td>${c.full_name}</td>
-                <td>${c.email}</td>
-                <td>${c.phone || '—'}</td>
+                <td>
+                  ${c.email}
+                  ${c.email_verified ? '<span class="adm-pill verified" style="font-size:10px;padding:2px 6px;margin-left:4px">Verified</span>' : '<span class="adm-pill pending" style="font-size:10px;padding:2px 6px;margin-left:4px">Pending</span>'}
+                </td>
+                <td>
+                  ${c.phone || '—'}
+                  ${c.phone_verified ? '<span class="adm-pill verified" style="font-size:10px;padding:2px 6px;margin-left:4px">Verified</span>' : ''}
+                </td>
                 <td><b>${c.total_bookings}</b></td>
                 <td><span class="adm-pill ${c.account_status.toLowerCase()}">${c.account_status}</span></td>
                 <td>
@@ -363,6 +369,7 @@
               <th>Partner ID</th>
               <th>Full Name</th>
               <th>Locality</th>
+              <th>Email &amp; Verification</th>
               <th>Rating</th>
               <th>Jobs Completed</th>
               <th>KYC Status</th>
@@ -371,11 +378,23 @@
             </tr>
           </thead>
           <tbody>
-            ${list.length === 0 ? `<tr><td colspan="8" style="text-align:center;padding:30px;color:var(--adm-muted)">0 partners registered in database.</td></tr>` : list.map(p => `
+            ${list.length === 0 ? `<tr><td colspan="9" style="text-align:center;padding:30px;color:var(--adm-muted)">0 partners registered in database.</td></tr>` : list.map(p => `
               <tr>
                 <td><strong>${p.id}</strong></td>
-                <td>${p.full_name}</td>
+                <td>
+                  <div style="display:flex;align-items:center;gap:8px">
+                    ${p.profile_photo ? `<img src="${p.profile_photo}" style="width:28px;height:28px;border-radius:50%;object-fit:cover" />` : ''}
+                    <span>${p.full_name}</span>
+                  </div>
+                </td>
                 <td>${p.service_locality}, ${p.service_city}</td>
+                <td>
+                  <div style="font-size:12px">${p.email || '—'}</div>
+                  <div style="margin-top:2px">
+                    ${p.email_verified ? '<span class="adm-pill verified" style="font-size:10px;padding:1px 5px">Email ✓</span>' : '<span class="adm-pill pending" style="font-size:10px;padding:1px 5px">Email Pending</span>'}
+                    ${p.phone_verified ? '<span class="adm-pill verified" style="font-size:10px;padding:1px 5px">Phone ✓</span>' : ''}
+                  </div>
+                </td>
                 <td>★ ${p.rating} (${p.rating_count})</td>
                 <td><b>${p.completed_jobs}</b></td>
                 <td><span class="adm-pill ${p.verification_status.toLowerCase()}">${p.verification_status}</span></td>

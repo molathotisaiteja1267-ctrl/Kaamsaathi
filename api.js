@@ -7,7 +7,19 @@
   'use strict';
 
   const TOKEN_KEY = 'KAAMSAATHI_AUTH_TOKEN';
-  const BASE_URL = ''; // Relative path on same server
+  function getBaseUrl() {
+    if (typeof window !== 'undefined') {
+      if (window.__API_BASE_URL__) return window.__API_BASE_URL__;
+      if (window.API_BASE_URL) return window.API_BASE_URL;
+      const stored = localStorage.getItem('API_BASE_URL');
+      if (stored) return stored;
+      if (window.location && window.location.protocol === 'file:') {
+        return 'http://localhost:8080';
+      }
+    }
+    return '';
+  }
+  const BASE_URL = getBaseUrl();
 
   class KaamSaathiAPI {
     constructor() {
@@ -91,6 +103,27 @@
       return data;
     }
 
+    async verifyEmail(email, otp) {
+      return await this.request('/api/auth/verify-email', {
+        method: 'POST',
+        body: JSON.stringify({ email, otp })
+      });
+    }
+
+    async verifyPhone(phone, otp) {
+      return await this.request('/api/auth/verify-phone', {
+        method: 'POST',
+        body: JSON.stringify({ phone, otp })
+      });
+    }
+
+    async resendVerification(channel, identifier) {
+      return await this.request('/api/auth/resend-verification', {
+        method: 'POST',
+        body: JSON.stringify({ channel, identifier })
+      });
+    }
+
     async getMe() {
       return await this.request('/api/auth/me');
     }
@@ -144,11 +177,125 @@
       return await this.request(`/api/partners${qs}`);
     }
 
+    async searchPartners(params = {}) {
+      const q = new URLSearchParams();
+      if (params.query) q.append('query', params.query);
+      if (params.category) q.append('category', params.category);
+      if (params.locality) q.append('locality', params.locality);
+      if (params.min_rating) q.append('min_rating', params.min_rating);
+      if (params.online_only) q.append('online_only', '1');
+      const qs = q.toString() ? `?${q.toString()}` : '';
+      return await this.request(`/api/partners/search${qs}`);
+    }
+
+    async getPartnerPublicProfile(partnerId) {
+      return await this.request(`/api/partners/${partnerId}/public-profile`);
+    }
+
+    async getPartnerMyProfile() {
+      return await this.request('/api/partners/profile/me');
+    }
+
     async submitPartnerOnboarding(data) {
       return await this.request('/api/partners/onboarding', {
         method: 'POST',
         body: JSON.stringify(data)
       });
+    }
+
+    async uploadPartnerDocument(docData) {
+      if (docData instanceof FormData) {
+        const url = `${BASE_URL}/api/partners/documents/upload`;
+        const headers = {};
+        const token = this.getToken();
+        if (token) headers['Authorization'] = `Bearer ${token}`;
+        const response = await fetch(url, {
+          method: 'POST',
+          headers,
+          body: docData,
+          credentials: 'include'
+        });
+        const data = await response.json().catch(() => ({}));
+        if (!response.ok) throw new Error(data.error || 'Document upload failed');
+        return data;
+      }
+      return await this.request('/api/partners/documents/upload', {
+        method: 'POST',
+        body: JSON.stringify(docData)
+      });
+    }
+
+    async getPartnerDocuments() {
+      return await this.request('/api/partners/documents');
+    }
+
+    async getPartnerAvailability() {
+      return await this.request('/api/partners/availability');
+    }
+
+    async setPartnerOnlineStatus(isOnline) {
+      return await this.request('/api/partners/availability/status', {
+        method: 'POST',
+        body: JSON.stringify({ is_online: isOnline ? 1 : 0 })
+      });
+    }
+
+    async setPartnerWeeklySchedule(schedule) {
+      return await this.request('/api/partners/availability/weekly', {
+        method: 'POST',
+        body: JSON.stringify({ schedule })
+      });
+    }
+
+    async addPartnerAvailabilityException(data) {
+      return await this.request('/api/partners/availability/exception', {
+        method: 'POST',
+        body: JSON.stringify(data)
+      });
+    }
+
+    async deletePartnerAvailabilityException(exceptionId) {
+      return await this.request(`/api/partners/availability/exception/${exceptionId}`, {
+        method: 'DELETE'
+      });
+    }
+
+    async updatePartnerLocation(latitude, longitude) {
+      return await this.request('/api/partners/location/update', {
+        method: 'POST',
+        body: JSON.stringify({ latitude, longitude })
+      });
+    }
+
+    async togglePartnerLocationSharing(isSharing) {
+      return await this.request('/api/partners/location/toggle-sharing', {
+        method: 'POST',
+        body: JSON.stringify({ is_sharing: isSharing ? 1 : 0 })
+      });
+    }
+
+    async uploadPartnerProfilePhoto(fileOrBase64) {
+      if (fileOrBase64 instanceof File) {
+        const formData = new FormData();
+        formData.append('photo', fileOrBase64);
+        const token = this.getToken();
+        const headers = {};
+        if (token) headers['Authorization'] = `Bearer ${token}`;
+        const res = await fetch(`${this.getBaseUrl()}/api/partners/profile-photo`, {
+          method: 'POST',
+          credentials: 'include',
+          headers,
+          body: formData
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok) throw new Error(data.error || 'Failed to upload profile photo');
+        return data;
+      } else {
+        return await this.request('/api/partners/profile-photo', {
+          method: 'POST',
+          body: JSON.stringify({ photo_base64: fileOrBase64 })
+        });
+      }
     }
 
     // --- Addresses ---
@@ -203,6 +350,33 @@
     async rejectBooking(bookingId) {
       return await this.request(`/api/bookings/${bookingId}/reject`, {
         method: 'POST'
+      });
+    }
+
+    async declineBooking(bookingId) {
+      return await this.request(`/api/bookings/${bookingId}/decline`, {
+        method: 'POST'
+      });
+    }
+
+    async expandBookingSearch(bookingId) {
+      return await this.request(`/api/bookings/${bookingId}/expand-search`, {
+        method: 'POST'
+      });
+    }
+
+    async getBookingTracking(bookingId) {
+      return await this.request(`/api/bookings/${bookingId}/tracking`);
+    }
+
+    async getBookingChat(bookingId) {
+      return await this.request(`/api/bookings/${bookingId}/chat`);
+    }
+
+    async sendBookingChatMessage(bookingId, message) {
+      return await this.request(`/api/bookings/${bookingId}/chat`, {
+        method: 'POST',
+        body: JSON.stringify({ message })
       });
     }
 
@@ -306,10 +480,10 @@
       return await this.request('/api/admin/verifications');
     }
 
-    async decideAdminVerification(verificationId, decision, notes = '') {
+    async decideAdminVerification(verificationId, decision, notes = '', rejectionReason = '') {
       return await this.request(`/api/admin/verifications/${verificationId}/decide`, {
         method: 'POST',
-        body: JSON.stringify({ decision, notes })
+        body: JSON.stringify({ decision, notes, rejection_reason: rejectionReason })
       });
     }
 

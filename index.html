@@ -646,7 +646,7 @@
         <form id="admin-login-form">
           <div class="form-group">
             <label class="form-label" for="admin-email">Admin Email</label>
-            <input class="form-input" type="email" id="admin-email" required placeholder="admin@kaamsaathi.com" />
+            <input class="form-input" type="email" id="admin-email" required placeholder="molathotisaiteja1267@gmail.com" />
           </div>
           <div class="form-group">
             <label class="form-label" for="admin-password">Admin Password</label>
@@ -763,6 +763,7 @@
 
     <!-- 5. Partner Multi-Step Onboarding Wizard Modal -->
     <dialog class="modal wide-modal" id="partner-onboarding-modal">
+      <button class="modal-close-btn" data-close-modal id="close-partner-onboarding-btn" aria-label="Close Verification Wizard">×</button>
       <div class="modal-header">
         <div class="eyebrow">PARTNER ONBOARDING WIZARD</div>
         <h2 id="part-onboard-title">Personal Information<br /><em>for verification.</em></h2>
@@ -893,6 +894,36 @@
             <textarea class="form-textarea" id="complaint-description" required rows="4" placeholder="Please provide specific details so our support team can take action immediately..."></textarea>
           </div>
           <button type="submit" class="button button-danger" style="width:100%">Submit Complaint for Admin Review <span>→</span></button>
+        </form>
+      </div>
+    </dialog>
+
+    <!-- 11. Account Email & Phone OTP Verification Modal -->
+    <dialog class="modal" id="account-verification-modal">
+      <button class="modal-close-btn" data-close-modal aria-label="Close">×</button>
+      <div class="modal-header">
+        <div class="eyebrow">SECURITY &amp; VERIFICATION</div>
+        <h2 id="verif-modal-title">Verify Your<br /><em>Account Contact</em></h2>
+        <p id="verif-modal-desc">Enter the 6-digit verification code (OTP) sent to your registered contact.</p>
+      </div>
+      <div class="modal-body">
+        <form id="account-verification-form">
+          <input type="hidden" id="verif-channel" value="EMAIL" />
+          <input type="hidden" id="verif-identifier" />
+          <div class="form-group">
+            <label class="form-label" id="verif-target-label">Verification Target</label>
+            <input class="form-input" id="verif-target-display" readonly style="background:#f8faf8;font-weight:600" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="verif-otp-input">6-Digit Verification Code (OTP)</label>
+            <input type="text" class="form-input" id="verif-otp-input" placeholder="e.g. 123456" maxlength="6" pattern="[0-9]{6}" required style="font-size:22px;letter-spacing:6px;text-align:center;font-weight:700" />
+            <small style="color:#64748b;display:block;margin-top:4px">Valid for 10 minutes. Up to 5 verification attempts.</small>
+          </div>
+          <button type="submit" class="button button-lime" id="verif-submit-btn" style="width:100%;margin-top:10px">Verify &amp; Confirm ✓</button>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;font-size:12px">
+            <span id="verif-cooldown-text" style="color:#94a3b8">Didn't receive code?</span>
+            <button type="button" class="text-button" id="verif-resend-btn" style="color:var(--teal);font-weight:600">Resend Code</button>
+          </div>
         </form>
       </div>
     </dialog>
@@ -1122,7 +1153,27 @@
       </div>
     </dialog>
 
-    <!-- 17. KaamSaathi Assistant Drawer (Right Sliding AI Drawer) -->
+    <!-- 17. Live Booking Tracking & In-App Chat Modal (Swiggy / Rapido Experience) -->
+    <dialog class="modal wide-modal" id="live-tracking-modal">
+      <button class="modal-close-btn" data-close-modal aria-label="Close">×</button>
+      <div class="modal-header" style="padding-bottom:12px">
+        <div class="eyebrow" style="color:var(--teal)">📍 LIVE SERVICE TRACKER</div>
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px">
+          <div>
+            <h2 id="tracking-bkg-title" style="margin-bottom:4px">Booking Tracking</h2>
+            <p id="tracking-bkg-subtitle" style="margin:0;font-size:13px;color:#607873">Real-time milestone status, live map &amp; provider communication</p>
+          </div>
+          <div id="tracking-mode-badge-wrap">
+            <span class="status-pill verified" id="tracking-mode-pill">URGENT MODE</span>
+          </div>
+        </div>
+      </div>
+      <div class="modal-body" id="live-tracking-content" style="max-height:75vh;overflow-y:auto;padding-top:10px">
+        <!-- Dynamic Tracking & Chat Rendered by app.js -->
+      </div>
+    </dialog>
+
+    <!-- 18. KaamSaathi Assistant Drawer (Right Sliding AI Drawer) -->
     <aside class="assistant-drawer" id="assistant-drawer" aria-label="KaamSaathi AI Assistant">
       <div class="assistant-head">
         <div>

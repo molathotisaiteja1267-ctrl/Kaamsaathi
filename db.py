@@ -28,8 +28,23 @@ except ImportError:
 DATABASE_URL = os.environ.get('DATABASE_URL', 'sqlite:///kaamsaathi.db').strip()
 APP_ENV = os.environ.get('APP_ENV', 'development').strip().lower()
 
+def normalize_db_url(url):
+    """Normalizes PostgreSQL URL (postgres:// -> postgresql://) and enforces sslmode=require for remote hosts."""
+    if not url:
+        return url
+    url = url.strip()
+    if url.startswith('postgres://'):
+        url = 'postgresql://' + url[len('postgres://'):]
+    if (url.startswith('postgresql://') and
+        'localhost' not in url and '127.0.0.1' not in url and
+        'sslmode=' not in url):
+        sep = '&' if '?' in url else '?'
+        url = f"{url}{sep}sslmode=require"
+    return url
+
 def is_postgres():
-    return DATABASE_URL.startswith('postgres://') or DATABASE_URL.startswith('postgresql://')
+    url = DATABASE_URL.strip()
+    return url.startswith('postgres://') or url.startswith('postgresql://')
 
 # Production startup verification
 if APP_ENV == 'production':
@@ -46,10 +61,11 @@ def get_pg_pool():
     if _PG_POOL is None and is_postgres() and PSYCOPG2_AVAILABLE:
         minconn = int(os.environ.get('DB_POOL_MIN', 2))
         maxconn = int(os.environ.get('DB_POOL_MAX', 20))
+        target_dsn = normalize_db_url(DATABASE_URL)
         _PG_POOL = psycopg2.pool.ThreadedConnectionPool(
             minconn=minconn,
             maxconn=maxconn,
-            dsn=DATABASE_URL,
+            dsn=target_dsn,
             cursor_factory=psycopg2.extras.RealDictCursor
         )
     return _PG_POOL
@@ -70,7 +86,8 @@ def get_connection():
             return pool.getconn()
         if not PSYCOPG2_AVAILABLE:
             raise RuntimeError("psycopg2 is required for PostgreSQL. Please install psycopg2-binary.")
-        return psycopg2.connect(DATABASE_URL, cursor_factory=psycopg2.extras.RealDictCursor)
+        target_dsn = normalize_db_url(DATABASE_URL)
+        return psycopg2.connect(target_dsn, cursor_factory=psycopg2.extras.RealDictCursor)
     else:
         db_path = get_sqlite_path()
         conn = sqlite3.connect(db_path)
@@ -82,12 +99,20 @@ def release_connection(conn):
     """Releases a connection back to the pool or closes it."""
     if is_postgres() and _PG_POOL is not None:
         try:
+            if conn and not getattr(conn, 'closed', False):
+                # Ensure no uncommitted or in-error transaction remains on the pooled connection
+                conn.rollback()
             _PG_POOL.putconn(conn)
             return
         except Exception:
-            pass
+            try:
+                _PG_POOL.putconn(conn, close=True)
+            except Exception:
+                pass
+            return
     try:
-        conn.close()
+        if conn and not getattr(conn, 'closed', False):
+            conn.close()
     except Exception:
         pass
 

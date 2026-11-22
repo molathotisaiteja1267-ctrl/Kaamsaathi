@@ -3129,3 +3129,464 @@ footer {
   .form-row, .role-select-cards { grid-template-columns: 1fr; }
   .app-content-scroll { padding: 18px 14px 60px; }
 }
+
+/* ============================================================================
+   ADVANCED MARKETPLACE FEATURES STYLES (FEATURES 1 TO 8)
+   ============================================================================ */
+
+/* 1. Live Tracking 8-Step Journey Timeline */
+.tracking-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .tracking-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tracking-journey {
+  position: relative;
+  padding: 8px 0 8px 28px;
+}
+
+.tracking-journey::before {
+  content: '';
+  position: absolute;
+  top: 18px;
+  bottom: 24px;
+  left: 11px;
+  width: 2px;
+  background: #e2e8f0;
+}
+
+.journey-step {
+  position: relative;
+  margin-bottom: 22px;
+}
+
+.journey-step:last-child {
+  margin-bottom: 0;
+}
+
+.journey-step-circle {
+  position: absolute;
+  left: -28px;
+  top: 2px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  background: #fff;
+  border: 2px solid #cbd5e1;
+  color: #94a3b8;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.journey-step.completed .journey-step-circle {
+  background: #10b981;
+  border-color: #10b981;
+  color: #fff;
+}
+
+.journey-step.active .journey-step-circle {
+  background: var(--teal);
+  border-color: var(--teal);
+  color: #fff;
+  box-shadow: 0 0 0 4px rgba(13, 92, 99, 0.2);
+  animation: pulseTrackingDot 2s infinite;
+}
+
+@keyframes pulseTrackingDot {
+  0% { box-shadow: 0 0 0 0 rgba(13, 92, 99, 0.4); }
+  70% { box-shadow: 0 0 0 8px rgba(13, 92, 99, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(13, 92, 99, 0); }
+}
+
+.journey-step-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 2px;
+}
+
+.journey-step.active .journey-step-title {
+  color: var(--teal);
+}
+
+.journey-step-desc {
+  font-size: 12px;
+  color: #64748b;
+  line-height: 1.4;
+}
+
+/* 2. Provider Live Radar & Distance Card */
+.tracking-radar-card {
+  background: linear-gradient(145deg, #0f3d41, #082427);
+  border-radius: 16px;
+  padding: 18px;
+  color: #fff;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.radar-sweep-anim {
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg at 50% 50%, rgba(16, 185, 129, 0.15) 0deg, transparent 60deg, transparent 360deg);
+  animation: radarSpin 4s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes radarSpin {
+  100% { transform: rotate(360deg); }
+}
+
+.radar-partner-info {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  position: relative;
+  z-index: 1;
+}
+
+.radar-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--lime);
+  color: #064e3b;
+  font-weight: 800;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #fff;
+  flex-shrink: 0;
+}
+
+.radar-meta {
+  flex: 1;
+}
+
+.radar-meta strong {
+  font-size: 16px;
+  display: block;
+}
+
+.radar-meta small {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 12px;
+}
+
+.radar-stats-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  position: relative;
+  z-index: 1;
+}
+
+.radar-stat-box {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 8px 12px;
+  flex: 1;
+  text-align: center;
+}
+
+.radar-stat-box span {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.7);
+  display: block;
+}
+
+.radar-stat-box strong {
+  font-size: 15px;
+  color: #fff;
+}
+
+/* 3. In-App Booking Chat */
+.tracking-chat-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 380px;
+}
+
+.chat-card-head {
+  padding: 12px 16px;
+  background: #fff;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat-card-messages {
+  flex: 1;
+  padding: 14px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.chat-bubble-msg {
+  max-width: 82%;
+  padding: 9px 13px;
+  border-radius: 14px;
+  font-size: 13px;
+  line-height: 1.4;
+  position: relative;
+}
+
+.chat-bubble-msg.me {
+  align-self: flex-end;
+  background: var(--teal);
+  color: #fff;
+  border-bottom-right-radius: 3px;
+}
+
+.chat-bubble-msg.them {
+  align-self: flex-start;
+  background: #fff;
+  color: var(--ink);
+  border: 1px solid #e2e8f0;
+  border-bottom-left-radius: 3px;
+}
+
+.chat-bubble-msg.system {
+  align-self: center;
+  background: #f1f5f9;
+  color: #64748b;
+  font-size: 11px;
+  border-radius: 20px;
+  padding: 4px 10px;
+}
+
+.chat-msg-time {
+  font-size: 9px;
+  margin-top: 3px;
+  opacity: 0.75;
+  text-align: right;
+}
+
+.chat-card-input-bar {
+  padding: 10px 14px;
+  background: #fff;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  gap: 8px;
+}
+
+.chat-card-input-bar input {
+  flex: 1;
+  border: 1px solid #cbd5e1;
+  border-radius: 20px;
+  padding: 8px 14px;
+  font-size: 13px;
+  outline: none;
+}
+
+.chat-card-input-bar input:focus {
+  border-color: var(--teal);
+}
+
+.chat-card-input-bar button {
+  background: var(--teal);
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 0 16px;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.chat-card-input-bar button:hover {
+  opacity: 0.9;
+}
+
+/* 4. Booking Mode Selector Cards (Mode A Urgent vs Mode B Scheduled) */
+.booking-mode-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 600px) {
+  .booking-mode-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.mode-card-select {
+  border: 2px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 16px;
+  cursor: pointer;
+  background: #fff;
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+.mode-card-select:hover {
+  border-color: #cbd5e1;
+  transform: translateY(-2px);
+}
+
+.mode-card-select.selected {
+  border-color: var(--teal);
+  background: #f0fdf4;
+  box-shadow: 0 4px 12px rgba(13, 92, 99, 0.12);
+}
+
+.mode-card-select h4 {
+  margin: 0 0 4px;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.mode-card-select p {
+  margin: 0;
+  font-size: 12px;
+  color: #64748b;
+  line-height: 1.4;
+}
+
+.mode-tag {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.mode-tag.urgent {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.mode-tag.scheduled {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+/* 5. Partner Availability Schedule UI */
+.avail-schedule-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 8px;
+}
+
+.avail-row {
+  background: #f8fafc;
+  border-radius: 10px;
+  transition: background 0.2s;
+}
+
+.avail-row td {
+  padding: 10px 14px;
+}
+
+.avail-row td:first-child {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  font-weight: 700;
+  font-size: 13px;
+  width: 130px;
+}
+
+.avail-row td:last-child {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  text-align: right;
+}
+
+.time-range-select {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.time-range-select input[type="time"] {
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 12px;
+}
+
+/* 6. Document Upload Grid for KYC */
+.kyc-docs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin: 16px 0;
+}
+
+.kyc-upload-box {
+  border: 2px dashed #cbd5e1;
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  background: #f8fafc;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.kyc-upload-box:hover {
+  border-color: var(--teal);
+  background: #f0fdf4;
+}
+
+.kyc-upload-box.uploaded {
+  border-style: solid;
+  border-color: #10b981;
+  background: #ecfdf5;
+}
+
+.kyc-upload-icon {
+  font-size: 24px;
+  margin-bottom: 6px;
+}
+
+.kyc-upload-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 2px;
+}
+
+.kyc-upload-sub {
+  font-size: 10px;
+  color: #64748b;
+}

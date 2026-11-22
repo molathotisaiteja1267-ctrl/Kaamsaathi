@@ -34,7 +34,7 @@ def get_migration_files():
     files = sorted(glob.glob(os.path.join(migrations_dir, '*.sql')))
     return files
 
-def upgrade():
+def _run_migrations():
     applied = get_applied_migrations()
     files = get_migration_files()
 
@@ -56,7 +56,15 @@ def upgrade():
             cur = conn.cursor()
             for stmt in statements:
                 adapted = db.adapt_sql(stmt)
-                cur.execute(adapted)
+                try:
+                    cur.execute(adapted)
+                except Exception as stmt_err:
+                    err_msg = str(stmt_err).lower()
+                    if ("duplicate column" in err_msg or 
+                        "already exists" in err_msg or 
+                        "multiple primary keys" in err_msg):
+                        continue
+                    raise
             
             now_iso = datetime.now(timezone.utc).isoformat()
             if db.is_postgres():
@@ -68,6 +76,18 @@ def upgrade():
 
     print("✓ All migrations successfully applied.")
     return len(pending)
+
+def upgrade():
+    if db.is_postgres():
+        with db.transaction() as conn:
+            cur = conn.cursor()
+            try:
+                cur.execute("SELECT pg_advisory_lock(742189);")
+                return _run_migrations()
+            finally:
+                cur.execute("SELECT pg_advisory_unlock(742189);")
+    else:
+        return _run_migrations()
 
 def status():
     applied = get_applied_migrations()
