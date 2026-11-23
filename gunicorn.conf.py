@@ -25,12 +25,23 @@ proc_name = "kaamsaathi_api"
 max_requests = 1000
 max_requests_jitter = 50
 
+
+
 def on_starting(server):
-    """Run database migrations and catalog seeding once in the master process before workers fork."""
+    """Initialize database and close master-process pool before workers start."""
     try:
         import server as app_server
+        import db
+
         app_server.ensure_db_ready()
-        server.log.info("✓ [GUNICORN] Master process database migrations and catalog seeding completed successfully.")
+        server.log.info("[GUNICORN] Database initialization completed.")
+
+        if db._PG_POOL is not None:
+            db._PG_POOL.closeall()
+            db._PG_POOL = None
+
+        server.log.info("[GUNICORN] Master database pool closed.")
+
     except Exception as e:
         server.log.error(f"[GUNICORN] Startup database initialization error: {e}")
-
+        raise
